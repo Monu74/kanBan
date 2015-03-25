@@ -1,0 +1,42 @@
+<div class="container-fluid" style="height:680px;background-color:#ecf4f9;;wigth:100%;">
+<section id="section1">
+  <div id="div1">
+    <header>
+         <h1 class="h1"> Create an Account</h1>
+    </header>
+    <form name="myForm" data-ng-app="" ng-init="myvar=false" novalidation>
+         <h3 class="h3">Name<br>
+            <input type="text" placeholder="eg., Monu Saini" name="user" required data-ng-model="user" class="form-control">
+            <span style="color:red" data-ng-show="myForm.user.$dirty && myForm.user.$invalid">
+               <span data-ng-show="myForm.user.$error.required">Username is required.</span>
+             </span>
+         </h3>         
+          <h3 class="h3">Email<br>
+             <input type="email" placeholder="eg., monusainioneworld@gmail.com" name="email" data-ng-model="email" required class="form-control">
+             <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+              <span ng-show="myForm.email.$error.required">Email is required.</span>
+               <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+              </span>
+              <span ng-model="uniq" ng-show="myvar">already registered</span>
+          </h3>
+          <h3 class="h3">Password<br>
+              <input type="password"  name="pass" placeholder="eg. *******" data-ng-model="pass" ng-minlength="8" required class="form-control">
+              <span style="color:red" data-ng-show="myForm.pass.$dirty && myForm.pass.$invalid">
+               <span data-ng-show="myForm.pass.$error.required">Password is required.</span>
+               <span data-ng-show="myForm.pass.$error.minlength">Too short</span>
+             </span>
+           </h3>
+           <h3 class="h3">Confirm Password<br>
+              <input type="password"  name="pass" placeholder="eg. *******" data-ng-model="pass1" ng-minlength="8" required class="form-control">
+              <span style="color:red" data-ng-show="myForm.pass.$dirty && myForm.pass.$invalid">
+               <span data-ng-show="myForm.pass.$error.required">Password is required.</span>
+               <span data-ng-show="myForm.pass.$error.minlength">Too short</span>
+             </span>
+           </h3>    
+           <input type="button"  value="Create New Account" id="button1" ng-click="add_info()">
+           <p style="color:#999"> Already have an account? <a ui-sref="login" class="a">log In</a></p>
+          
+    </form>
+   </div>
+ </section>
+</div>

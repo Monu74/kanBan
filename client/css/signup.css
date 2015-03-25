@@ -1,0 +1,41 @@
+#section1{
+    margin:80px auto;
+    max-width: 900px;
+}
+#div1{
+	max-width: 280px;
+	margin: 0 auto;
+	
+}
+.input_box{
+	background-color:#e0e0e0;
+	width: 250px;
+	height:35px;
+   border:2px solid #d0d0d0;
+   border-radius:3px;
+}
+#button1{
+	background-color: #48b512;
+	border:1px solid #3d990f;
+	height: 30px;
+	width:150px;
+	text-align: center;
+	color:white;
+
+}
+.h3{
+	font-family: arial;
+	font-weight: normal;
+	color:#4C4C4C;
+}
+.h1{
+	font-family:sans-serif;
+	color:#4C4C4C;
+	font-size:30px; 
+}
+.a{
+	color:#999;
+}
+a:hover{
+	color: #323232;
+}

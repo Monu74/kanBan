@@ -1,0 +1,337 @@
+<html ng-app="TowerApp" id="ng-app" class="ng-scope"><head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="googlebot" content="index, follow">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="3 days">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title></title>
+<title>Westcan</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/css.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/ng-grid.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.2.custom.min.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style></head>
+<body style="">
+	<div id="base_container">
+		<div id="header" class="c-header">
+			<div class="site_inner c-header-inner">
+				<div id="header_logo">
+					<a href="#/"><img style="height:75px;" src="img/axle_master_logo.png" border="0"></a><div class="head_tittle">PRODUCT CONTROL PANEL</div>
+			 	</div>
+			</div>
+		</div>
+		<div ng-controller="NavigationController" class="navbar pull-left c-navbar ng-scope" style="border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-style: none;" ng-show="show">
+				<div class="left-nav-menu">
+					<div class="left-menu-top">
+						<img src="img/cb_menu_head.png">
+					</div>
+					<div ng-show="towers || accessories || categories || users" class="pull-left" style="padding: 0px 0px 2px 1px; width: 100%;">
+						<a class="brand pull-left c-brand" href="#/main" id="PM_hide" style="background-color: rgb(74, 74, 74);"><img class="module_green_arrow" id="PM_Img" style="padding: 6px; margin: 0px 3px 3px; background-image: url(http://50.16.242.129/app/img/arrow_down_green.png);">Product Manager</a>
+						<ul class="nav c-nav" id="PM_p">
+							<li ng-show="towers" class="nav-cnav pm_nav selectedClass" style="border-top-style: none;" onclick="jQuery('.selectedClass').removeClass('selectedClass');jQuery(this).addClass('selectedClass');"><a class="c-dropdown-toggle" href="#/tower">Towers</a></li>
+							<li ng-show="accessories" class="pm_nav" onclick="jQuery('.selectedClass').removeClass('selectedClass');jQuery(this).addClass('selectedClass');"><a class="c-dropdown-toggle" href="#/accessory">Accessories</a></li>
+							<li ng-show="categories" class="pm_nav" onclick="jQuery('.selectedClass').removeClass('selectedClass');jQuery(this).addClass('selectedClass');"><a class="c-dropdown-toggle" href="#/category">Categories</a></li>
+							<li ng-show="users" class="pm_nav" onclick="jQuery('.selectedClass').removeClass('selectedClass');jQuery(this).addClass('selectedClass');" style="border-bottom-style: none;"><a class="c-dropdown-toggle" href="#/user">Users</a></li>
+						</ul>
+					</div>
+					<div ng-show="quotes" class="pull-left" style="padding: 0px 0px 2px 1px; width: 100%;">
+						<a class="brand pull-left c-brand" href="#/quote_request" id="QM_hide" style="background-color: rgb(74, 74, 74);"><img class="module_green_arrow" id="QM_Img" style="padding: 6px; margin: 0px 3px 3px; background-image: url(http://50.16.242.129/app/img/arrow_down_green.png);">Quote Manager</a>
+						<ul class="nav c-nav" id="QM_p">
+							<li style="border: none;" ng-show="quotes" class="pm_nav" onclick="jQuery('.selectedClass').removeClass('selectedClass');jQuery(this).addClass('selectedClass');"><a class="c-dropdown-toggle" href="#/quote_request">Quote Requests</a></li>
+						</ul>
+					</div>
+					<!-- <div class="pull-left" style="padding:0 0 2px 1px; width: 100%;">						
+						<a class="brand pull-left c-brand" href="{{navURLS.ts}}/#/main" id="TS_hide"><img class="module_green_arrow">Touchstone</a>
+					</div> -->
+
+						<ul class="nav navbar-nav navbar-right" ng-show="isUser">
+							<li><a style="font-size:16px;font-weight: normal; " href="#/logout">Logout</a></li>
+						</ul>
+
+					<div class="menu_divider menu_divider_no_margin"></div>
+					<div class="menuveg">
+              			<div class="menulab"></div>
+              			<div class="menuval"></div>
+          			</div>
+				</div>
+		</div>
+		<div class="c-site-inner"><div class="box_body pull-left" ng-view="" ng-show="showMainView"><div class="page-header ng-scope">
+	<h1>Tower editor
+		<small class="ng-binding">- Trinity   ()</small>
+	</h1>
+</div>
+<form name="towerForm" class="form-horizontal ng-scope ng-pristine ng-invalid ng-invalid-required" role="form">
+	<!-- ngRepeat: row in fields | filter:{field:'!!', onlyDisplay:'!'} --><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' -->
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="hidden" class="form-control ng-pristine ng-valid ng-valid-required" id="id-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="towerPartNumber-input" class="col-sm-3 control-label ng-scope ng-binding">Part Number</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" id="towerPartNumber-input" ng-model="formdata[row.field]" ng-required="row.required" required="required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="towerName-input" class="col-sm-3 control-label ng-scope ng-binding">Name</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="towerName-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="towerModelDesignation-input" class="col-sm-3 control-label ng-scope ng-binding">Model</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="towerModelDesignation-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="description-input" class="col-sm-3 control-label ng-scope ng-binding">Description</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="description-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="type-input" class="col-sm-3 control-label ng-scope ng-binding">Type</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate -->
+			<!-- ngIf: row.formTemplate --><div ng-if="row.formTemplate" ng-include="row.formTemplate" class="ng-scope"><select class="form-control ng-scope ng-pristine ng-valid" id="type-input" ng-model="formdata[row.field]" ng-options="type for type in ['Free-Standing','Guyed','Portable']"><option value="" class="">-- select type --</option><option value="0">Free-Standing</option><option value="1">Guyed</option><option value="2">Portable</option></select></div>
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="towerHeight-input" class="col-sm-3 control-label ng-scope ng-binding">Height (feet)</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="towerHeight-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="weight-input" class="col-sm-3 control-label ng-scope ng-binding">Weight (lbs.)</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="weight-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="towerBase-input" class="col-sm-3 control-label ng-scope ng-binding">Base (inch)</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="towerBase-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="shippingDimensions-input" class="col-sm-3 control-label ng-scope ng-binding">Shipping Dimensions (LxWxH)</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="shippingDimensions-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="epaFlat70-input" class="col-sm-3 control-label ng-scope ng-binding">EPA Flat 70</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="epaFlat70-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="epaFlat85-input" class="col-sm-3 control-label ng-scope ng-binding">EPA Flat 85</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="epaFlat85-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="epaFlat100-input" class="col-sm-3 control-label ng-scope ng-binding">EPA Flat 100</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="epaFlat100-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="epaRound70-input" class="col-sm-3 control-label ng-scope ng-binding">EPA Round 70</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="epaRound70-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="epaRound85-input" class="col-sm-3 control-label ng-scope ng-binding">EPA Round 85</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="epaRound85-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="epaRound100-input" class="col-sm-3 control-label ng-scope ng-binding">EPA Round 100</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="epaRound100-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="survival-input" class="col-sm-3 control-label ng-scope ng-binding">Survival Ice (inch)</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="number" class="form-control ng-pristine ng-valid-number ng-valid ng-valid-required" id="survival-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="serialNumber-input" class="col-sm-3 control-label ng-scope ng-binding">Serial Number</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="serialNumber-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="listPrice-input" class="col-sm-3 control-label ng-scope ng-binding">List Price ($)</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="listPrice-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="wholesalePrices-input" class="col-sm-3 control-label ng-scope ng-binding">Wholesale Prices ($)</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="wholesalePrices-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="manufacturer-input" class="col-sm-3 control-label ng-scope ng-binding">Manufacturer</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="manufacturer-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="westcanInfocol-input" class="col-sm-3 control-label ng-scope ng-binding">Westcan Info</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="westcanInfocol-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="unit-input" class="col-sm-3 control-label ng-scope ng-binding">Unit</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate --><div ng-if="!row.formTemplate" class="ng-scope"><input type="text" class="form-control ng-pristine ng-valid ng-valid-required" id="unit-input" ng-model="formdata[row.field]" ng-required="row.required"></div>
+			<!-- ngIf: row.formTemplate -->
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="image-input" class="col-sm-3 control-label ng-scope ng-binding">Image</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate -->
+			<!-- ngIf: row.formTemplate --><div ng-if="row.formTemplate" ng-include="row.formTemplate" class="ng-scope"><div class="ng-scope">
+	<!-- ngIf: formdata[row.field] -->
+	<span class="file-input-wrapper btn btn-success btn-file">New File
+		<input file-uploader="" on-add="fileAdded" id="image-input" type="file" data-upload-service="image">
+	</span>
+	<!-- ngIf: files[row.field] -->
+</div></div>
+		</div>
+	</div><div class="form-group ng-scope" ng-repeat="row in fields | filter:{field:'!!', onlyDisplay:'!'}">
+		<!-- ngIf: row.type != 'hidden' --><label ng-if="row.type != 'hidden'" for="engineerSpecification-input" class="col-sm-3 control-label ng-scope ng-binding">Engineer Spec.</label>
+		<div class="col-sm-6">
+			<!-- ngIf: !row.formTemplate -->
+			<!-- ngIf: row.formTemplate --><div ng-if="row.formTemplate" ng-include="row.formTemplate" class="ng-scope"><div class="ng-scope">
+	<!-- ngIf: formdata[row.field] -->
+	<span class="file-input-wrapper btn btn-success btn-file">New File
+		<input file-uploader="" on-add="fileAdded" id="engineerSpecification-input" type="file" data-upload-service="engineerSpecification">
+	</span>
+	<!-- ngIf: files[row.field] -->
+</div></div>
+		</div>
+	</div>
+	
+	<hr>
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-6">
+			<button class="btn btn-success btn-lg" ng-disabled="towerForm.$invalid" ng-click="save()" disabled="disabled">Save Tower</button>
+			<button class="btn btn-default btn-lg" ng-click="close()">Back</button>
+		</div>
+	</div>
+</form></div></div>
+	</div>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$(".module_green_arrow").css({'background-image':'url(img/arrow_right_green.png)', 'padding': '6px', 'margin': '0 3px 3px 3px'});
+     		$("#PM_hide").css({'background-color':'#2f2f2f'}); 
+      		$("#PM_hide").click(function(){	
+	 			$("#PM_p").toggle(function(){
+          			if ($(this).css('display') == 'block') {        	 
+         				$("#PM_Img").css({'background-image':'url(img/arrow_down_green.png)', 'padding': '6px', 'margin': '0 3px 3px 3px'});
+         				$("#PM_hide").css({'background-color':'#4A4A4A'});
+     				} 
+          			else if($(this).css('display') == 'none') {
+         				$("#PM_Img").css({'background-image':'url(img/arrow_right_green.png)', 'padding': '6px', 'margin': '0 3px 3px 3px'});
+         				$("#PM_hide").css({'background-color':'#2f2f2f'}); 
+     				}
+          			else {
+         				$("#PM_Img").css({'background-image':'url(img/arrow_right_green.png)', 'padding': '6px', 'margin': '0 3px 3px 3px'});
+         				$("#PM_hide").css({'background-color':'#2f2f2f'});
+     				}      
+				});
+ 			});
+      		
+      		$("#QM_hide").css({'background-color':'#2f2f2f'}); 
+      		$("#QM_hide").click(function(){	
+	 			$("#QM_p").toggle(function(){
+          			if ($(this).css('display') == 'block') {        	 
+         				$("#QM_Img").css({'background-image':'url(img/arrow_down_green.png)', 'padding': '6px', 'margin': '0 3px 3px 3px'});
+         				$("#QM_hide").css({'background-color':'#4A4A4A'});
+     				} 
+          			else if($(this).css('display') == 'none') {
+         				$("#QM_Img").css({'background-image':'url(img/arrow_right_green.png)', 'padding': '6px', 'margin': '0 3px 3px 3px'});
+         				$("#QM_hide").css({'background-color':'#2f2f2f'}); 
+     				}
+          			else {
+         				$("#QM_Img").css({'background-image':'url(img/arrow_right_green.png)', 'padding': '6px', 'margin': '0 3px 3px 3px'});
+         				$("#QM_hide").css({'background-color':'#2f2f2f'});
+     				}      
+				});
+ 			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			$("#sub").click(function(){
+		 	$('#men').show();
+		 	$('#men').css({'display':'block !important'});
+		});
+		});
+	</script>
+
+	<script src="lib/jquery/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="lib/jquery/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="lib/angular/angular-resource.min.js"></script>
+	<script type="text/javascript" src="lib/angular-ui/ng-grid-2.0.7.min.js"></script>
+	<script type="text/javascript" src="lib/angular-ui/ng-grid-flexible-height.js"></script>
+	<script type="text/javascript" src="lib/angular-ui/ui-bootstrap-tpls-0.4.0.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/angular-ui/tagit.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/config/config.js"></script>
+	<script type="text/javascript" src="js/config/roles.js"></script>
+	<script type="text/javascript" src="js/config/model.js"></script>
+	<script type="text/javascript" src="js/config/permissions.js"></script>
+
+	<script type="text/javascript" src="js/services/AuthService.js"></script>
+	<script type="text/javascript" src="js/services/UserService.js"></script>
+	<script type="text/javascript" src="js/services/TowerService.js"></script>
+	<script type="text/javascript" src="js/services/AccessoryService.js"></script>
+	<script type="text/javascript" src="js/services/CategoryService.js"></script>
+	<script type="text/javascript" src="js/services/QuoteRequestService.js"></script>
+
+	<script type="text/javascript" src="js/services/FileUploadService.js"></script>
+	<script type="text/javascript" src="js/controllers/FileUploadController.js"></script>
+	<script type="text/javascript" src="js/controllers/NavigationController.js"></script>
+
+	<script src="js/controllers/AuthController.js"></script>
+	<script src="js/controllers/UserController.js"></script>
+	<script src="js/controllers/TowerController.js"></script>
+	<script src="js/controllers/AccessoryController.js"></script>
+	<script src="js/controllers/CategoryController.js"></script>
+	<script src="js/controllers/QuoteRequestController.js"></script>
+
+	<script src="js/directives/FileUploader.js"></script>
+	
+	<script src="lib/munawjs/services/LoadingWindow.js"></script>
+	<script src="lib/munawjs/services/Dialogs.js"></script>
+
+
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="munawLoadingWindow" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 300px; top: 266px; left: 493px; display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-1" class="ui-dialog-title">&nbsp;</span><button class="ui-dialog-titlebar-close"></button></div><div id="munawLoadingWindow" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 88px; max-height: none; height: auto;">Loading...</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div></body></html>

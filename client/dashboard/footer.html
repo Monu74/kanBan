@@ -1,0 +1,36 @@
+<div id="ddiv1" ng-show="options.show_task">
+      <a id="project_hover"> 
+            <p style="font-size:24px;color: white;float:left;margin-left:3.25%"  ng-click="changeProjectName()">{{myvar}}
+            </p> 
+      </a>
+                     <div class="dropdown" style="float:left" ng-click="show_member()" >
+                          <a class="dropdown-toggle" type="button" id="dropdownMenu1"
+                           data-toggle="dropdown" aria-expanded="true"   >
+                            <span class="glyphicon glyphicon-user" style="color:#9e9ea6;float:left;margin-top:10px;left:10px;z-index:-1">  
+                          </a>
+                          <ul class="dropdown-menu  style-2" role="menu" aria-labelledby="dropdownMenu1" style="max-height:150px;overflow:auto">
+                                <li ng-repeat="member in options.project_member track by $index" style="list-style-type:none;cursor:pointer;" ng-click="show_Member_Profile(member)" >
+                                     <a role="menuitem" id="link{{$index}}" tabindex="-1" ng-style="setBGColor($index)">
+                                          {{member}}       
+                                     </a>
+                                </li>
+                         </ul>
+                     </div>
+   <!--   <a><span class="glyphicon glyphicon-user" style="color:#9e9ea6;float:left;margin-top:10px;left:10px" ng-click="show_member()"></span>
+      </a>-->
+     <div id="project_name_change"  ng-show="options.p" data-ng-init="p=false">
+             <p style="text-align:center;display:inline;margin-left:63px;margin-right:49px;color:#8c8c8c"> Rename Project
+             </p>
+             <a class="pop-over header close-btn"><span style="margin-top:0px;" class="glyphicon glyphicon-remove" ng-click="close_project_name()"></span>
+             </a>
+             <hr>
+             <p style="margin-left:10px;display:block;margin-top:-10px;color:#8c8c8c">Name:</p>
+             <input type="text" data-ng-model="myvar" class="js-board-name js-autofocus" style="height: 34px;width: 220px;margin-left: 10px;background-color:#e2e4e6;border:2px solid #cdd2d4;border-radius:2px"/>
+             <a class="pop-over header close-btn"> <input type="button" id="button1" value="Rename" style="margin-left: 10px;margin-top: 10px;width: 65px; " ng-click="updateProjectName(myvar)"/>
+             </a> 
+    </div>
+   <taskprogress></taskprogress>
+   <taskdetail></taskdetail>
+   <memberdetail></memberdetail>
+ </div> 
+ 

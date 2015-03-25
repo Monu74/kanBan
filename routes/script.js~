@@ -1,0 +1,79 @@
+var express = require('express');
+var db=require('./db.js');
+var api=require('./script.js').api;
+module.exports.api={
+ 
+  login: function(options,callback){ 
+ 	   db.user.find(options,function(err,res){
+
+                  if(err){
+                  console.log(err);
+                  callback(err,null);
+                  }else{  
+                  callback(null,res);}  
+                                
+        } )
+  },
+  projectget: function(){
+       db.project.create({"name":"project1"},function(err,res){
+            console.log(JSON.stringify(res));
+       })  
+  },
+  register: function(options,callback){ 
+            if(!options.pass){
+              var err="password is not given"
+              err.prototype=Error.prototype;
+              callback(err,null);
+            }
+           db.user.create(options,function(err,res){
+                if(err){
+                  console.log(err);
+                  callback(err,null);
+                }else{  
+                  callback(null,res);}  
+         })
+  },
+  project: function(options,callback){ 
+           db.project.create(options,function(err,res){
+               
+                  if(err){
+                  console.log(err);
+                  callback(err,null);
+                }else{  
+                  callback(null,res);}  
+         })
+  },
+  add_task: function(options,callback){ 
+           db.task.create(options,function(err,res){
+               
+                  if(err){
+                  console.log(err);
+                  callback(err,null);
+                }else{  
+                  callback(null,res);}  
+         })
+  },
+  read: function(){ 
+      db.task.find({"title":"task1"},function(err,res){
+                                console.log(JSON.stringify(res));
+          })
+  },
+  change_task: function(options,callback){ 
+     db.task.update(options,{status:"in progress",completion_date:"2/feb/14"},function(err,res){
+           if(err){
+                  console.log(err);
+                  callback(err,null);
+                }else{  
+                  callback(null,res);}    
+     })                   
+  }, 
+  delete_task: function(options,callback){
+    db.task.remove(options,function(err,res){
+      if(err){
+                  console.log(err);
+                  callback(err,null);
+                }else{  
+                  callback(null,res);}    
+    })
+  }    
+}

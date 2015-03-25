@@ -1,0 +1,40 @@
+ <div  class="ddiv2 footer style-2" id="task_detail_res" ng-show="options.member_detail" ng-init="options.member_detail=false">
+     <p ng-click="close_detail()" style="cursor:pointer;float:right; font-size:10">[close]</p>
+    <!-- <li style="list-style-type:none" ng-repeat="new in new_member ">
+     <p style="display:block">{{new.email}}</p>
+     <img  ng-src="{{new.picture}}" height="80" width="80" style="background-image:url('images/unknown1.jpg');background-repeat:no-repeat;"> 
+     <button ng-if="options.project_member.indexOf(new.email) == -1" ng-click="add_member_toProject(new)"> Add 
+     </button>
+     <button ng-click="show_Member_Profile(new.email)">View profile</button>
+    <hr></li> -->
+        <li style="list-style-type:none;clear:both" ng-repeat="new in new_member ">
+                <div style="border:1px solid;margin-bottom:10px;padding:10px" class="member-detail">
+            	      
+    		           <!-- <img  ng-src="{{new.picture}}" height="80" width="80" style="background-image:url('images/unknown1.jpg');background-repeat:no-repeat;">
+    		            <p style="">{{new.name}}</p>
+    		            <p style="">{{new.email}}</p>
+            	        <button ng-if="options.project_member.indexOf(new.email) == -1" ng-click="add_member_toProject(new)"> Add 
+                        </button>
+                        <button ng-click="show_Member_Profile(new.email)">View profile</button> -->
+                        <table>
+                        	<tr>
+                        		<td rowspan="2">
+                        		     <img  ng-src="{{new.picture}}" height="80" width="80" style="background-image:url('images/unknown1.jpg');background-repeat:no-repeat;">	
+                        		</td>
+                        		<td style="padding-left:8px">
+                        		    <p  class="p_full_screen p_min_width">{{new.name}}</p>
+                        		</td>
+                        	</tr>
+                        	<tr>
+                        		<td style="padding-left:8px">
+                        			<p class="p_full_screen p_min_width">{{new.email}}</p>
+                        		</td>
+                        	</tr>
+                       </table>
+                       <button  style="margin-top:10px" ng-click="show_Member_Profile(new.email)">View profile
+                       </button>
+                        <button  ng-if="options.project_member.indexOf(new.email) == -1" ng-click="add_member_toProject(new)"> Add 
+                        </button>
+                </div>
+         </li>       
+ </div>

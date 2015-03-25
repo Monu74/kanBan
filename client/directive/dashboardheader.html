@@ -1,0 +1,168 @@
+<!--<header id="dheader" class=>
+   <button type="button" class="navbar-toggle" data-toggle="collapse" >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+    </button>
+   <div class="dropdown" style="margin-top: 3px;float: left;margin-left: 26px;">
+       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" 
+               data-toggle="dropdown" aria-expanded="true" ng-click="change1()"  >
+         PROJECTS
+         <span class="caret"></span>
+       </button>
+       <ul class="dropdown-menu style-2" role="menu" aria-labelledby="dropdownMenu1" style="max-height:300px;overflow:auto">
+         <li role="presentation" ng-click="readtask(project)" ng-repeat="project in projects" data-ng-init="projects=[]" style="cursor:pointer">
+           <a role="    menuitem" tabindex="-1" >
+             {{project.name |limitTo: 12}}{{project.name.length>12?"...":""}}
+           </a>
+         </li>
+       </ul>
+     </div>
+ <!-- <a class="btn btn-primary" id="btn2" data-ng-click="change1()">Project</a> 
+  <a class="btn btn-primary" style="margin-top:3px ;margin-left:3px;float:left"><span class="glyphicon glyphicon-plus"  ng-click="change2()"></span>
+  </a> 
+  <div id="logo_name">
+     <p id="p1">Task Manager </p>
+  </div>
+     <button class="btn btn-primary" id="btn4" ng-click="show_info()" >{{x.name | limitTo : 9}}</button>
+    <!-- <div class="dropdown" style="margin-top: 3px;float: right;margin-right: 26px;">
+       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" 
+               data-toggle="dropdown" aria-expanded="true" >
+         {{x.name | limitTo : 9}}
+       </button>
+       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+         <li role="presentation" style="cursor:pointer" tabindex="-1">
+            <a role="    menuitem" tabindex="-1" ng-click="show_Profile()" >
+               My Profile  
+            </a>    
+         </li>
+         <li role="presentation" style="cursor:pointer">  
+           <a role="    menuitem" tabindex="-1" ng-click="change_Password()" >
+              Change Password
+           </a>    
+         </li>
+         <hr>
+         <li role="presentation" style="cursor:pointer">
+           <a role="    menuitem" tabindex="-1" ng-click="show_Not_team_member()">
+             Team Directory 
+           </a>    
+         </li>
+         <hr>
+         <li role="presentation" style="cursor:pointer"> 
+           <a role="    menuitem" tabindex="-1" ng-click="logout()" >
+              Logout 
+           </a>    
+         </li>
+       </ul>
+     </div>
+     <a  class="btn btn-primary" style="float: right;margin-right: 3px;margin-top: 3px;"><span class="glyphicon glyphicon-plus" ng-click="add_New_Member()"></span>
+     </a>
+   
+ </header>-->
+ <nav class="navbar navbar-default" style="background-color: #0c6395;border-color:#0c6395;min-height:40px">
+  <div class="container-fluid">
+      <div class="row extra_small">
+             <div class="col-xs-6 " style="float:left">
+                   <!--<p id="p1">KanBan</p>-->
+                   <span class="header-logo-default"></span>
+             </div>
+             <div class="col-xs-6" style="float:right">       
+                   <div class="dropdown" style="float:right;margin-top:3px">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" 
+                            data-toggle="dropdown" aria-expanded="true" >
+                             {{x.name | limitTo : 9}}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1" style="float:">
+                           <li role="presentation" style="cursor:pointer" tabindex="-1">
+                                <a role="menuitem" tabindex="-1" ng-click="show_Profile()" >
+                                     My Profile  
+                                 </a>    
+                            </li>
+                            <li role="presentation" style="cursor:pointer">  
+                                <a role="menuitem" tabindex="-1" ng-click="change_Password()" >
+                                       Change Password
+                                </a>    
+                            </li>
+                            <hr class="h3class">
+                            <li role="presentation" style="cursor:pointer">
+                                 <a role="    menuitem" tabindex="-1" ng-click="show_Not_team_member()">
+                                       Team Directory 
+                                 </a>    
+                            </li>
+                            <hr class="h3class">
+                            <li role="presentation" style="cursor:pointer"> 
+                                <a role="    menuitem" tabindex="-1" ng-click="logout()" >
+                                    Logout 
+                                </a>    
+                            </li>
+                        </ul>
+                   </div>
+             </div>      
+      </div> 
+      <div class="row">
+              <div class="col-md-5 col-sm-5 col-xs-6" >   
+                     <div class="dropdown" style="float:left; margin-left:26px;margin-top:3px">
+                          <button class=" large btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                           data-toggle="dropdown" aria-expanded="true" ng-click="change1()" style="float:left" >
+                           PROJECTS
+                               <span class="caret"></span>
+                          </button>
+                          <button class=" extra_small btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" 
+                          data-toggle="dropdown" aria-expanded="true" ng-click="change1()" style="float:left;margin-left:-26px" >
+                          PRO
+                              <span class="caret"></span>
+                         </button>
+                         <ul class="dropdown-menu style-2" role="menu" aria-labelledby="dropdownMenu1" style="max-height:300px;overflow:auto">
+                                 <li role="presentation" ng-click="readtask(project)" ng-repeat="project in projects" data-ng-init="projects=[]" style="cursor:pointer">
+                                     <a role="    menuitem" tabindex="-1" >
+                                         {{project.name |limitTo: 12}}{{project.name.length>12?"...":""}}
+                                     </a>
+                                 </li>
+                         </ul>
+                     </div>   
+                     <a class="btn btn-primary" ng-click="change2()" style="margin-left:3px;float:left;margin-top:3px"><span class="glyphicon glyphicon-plus"  ></span>
+                     </a>  
+              </div>
+              <div class="col-md-2 col-sm-2 large" style="text-align:center">
+                  <!--<p id="p1">KanBan</p>-->
+                  <span class="header-logo-default"></span>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-6">         
+     <!-- <button class="btn btn-primary" id="btn4" ng-click="show_info()" >{{x.name | limitTo : 9}}</button>--> 
+                   <div class="dropdown large" style="margin-top: 3px;float: right;margin-right: 26px;">
+                          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" 
+                             data-toggle="dropdown" aria-expanded="true" >
+                             {{x.name | limitTo : 9}}
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1" style="float:">
+                              <li role="presentation" style="cursor:pointer" tabindex="-1">
+                                  <a role="    menuitem" tabindex="-1" ng-click="show_Profile()" >
+                                   My Profile  
+                                   </a>    
+                             </li>
+                             <li role="presentation" style="cursor:pointer">  
+                                 <a role="    menuitem" tabindex="-1" ng-click="change_Password()" >
+                                  Change Password
+                                 </a>    
+                             </li>
+                               <hr class="h3class">
+                              <li role="presentation" style="cursor:pointer">
+                                  <a role="    menuitem" tabindex="-1" ng-click="show_Not_team_member()">
+                                     Team Directory 
+                                  </a>    
+                               </li>
+                               <hr class="h3class">
+                               <li role="presentation" style="cursor:pointer"> 
+                                    <a role="    menuitem" tabindex="-1" ng-click="logout()" >
+                                         Logout 
+                                     </a>    
+                              </li>
+                          </ul>
+                   </div>
+                    <a class="btn btn-primary" style="float:right;margin-right:3px;margin-top:3px" ng-click="add_New_Member()">Team<span class="glyphicon glyphicon-plus"></span>
+                    </a>
+              </div>
+    </div>      
+ </div>
+</nav>
+  

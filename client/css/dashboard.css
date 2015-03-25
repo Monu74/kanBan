@@ -1,0 +1,258 @@
+@media screen and (max-width: 768px) {
+    .large{
+    	display:none !important;
+    }
+    .extra_small{
+    	 display:block;
+    }
+    
+  }
+@media screen and (min-width:769px) {
+    .extra_small{
+    	 display: none !important;
+    }
+ }
+ @media screen and (max-width:1130px) {    
+    #task_detail_res{
+    	float:left;
+    	width:245px;
+    }
+    .comment_box_res{
+    	width:220px;
+    }
+    #comment_box_res{
+    	width:220px;
+    }
+    p.p_min_width{
+    	width:103px;
+    }
+    .input_box_res{
+    	width:150px;
+    }
+ }
+ .p_full_screen{
+ 	word-wrap:break-word;
+ 	width:142px
+ }
+  
+#dheader{
+	height:40px;
+	background-color: #0c6395;
+	position: relative;
+}
+.btn2{
+	background-color: #6da2c0;
+	text-align: center;
+	color:white;
+	border:1px solid #6da2c0;
+	margin-top:7px;
+    border-radius: 3px; 
+    padding:6px;
+    position: absolute;
+    padding: 0px 8px;
+    font-weight: 700;
+    line-height: 25px;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+}
+#btn2{
+	margin-left: 26px;
+	margin-top: -6px;
+}
+#p1{
+ 
+  display:inline;
+  color: white;
+  font-size:20px;
+  position: relative;
+  line-height: 2;
+ }
+#btn4{
+	 float: right;   
+ }
+#btn5{
+margin-left: 670px;
+}
+#ddiv1{
+	width: 100%;
+   
+}
+.ddiv2{
+	width: 242px;
+	background-color: #e2e4e6;
+    left: 16px;
+    position: relative;
+    border-radius: 5px;
+    padding: 10px;
+    float: left;
+    z-index: -1000;
+    margin-bottom: 20px;
+    top:20px;
+    margin-right:16px;
+   }
+
+.p1{
+	color: #252527;
+	
+}
+.span1{
+   margin-left: 10px;
+}
+.leftdiv{
+	max-height: 264px;
+	width:233px;
+	background-color: white;
+    border-radius: 2px;
+     position: absolute;
+     display: inline-block;
+     margin-left: 4px;
+     overflow: auto;
+     
+}
+#rightdiv{
+	height:112px;
+	background-color:white;
+    border:2px solid white;
+     border-radius: 2px;
+     position: relative;
+     margin-left:28px;
+     position: absolute; 
+    padding: 10px;
+    margin-top:-20px;
+}
+
+.itemid{
+	height:38px;
+	width:225px;
+	background-color: white;
+	margin-bottom: 5px;
+	border-radius: 2px;
+	overflow: hidden;
+	cursor:pointer;
+}
+#namediv{
+    position: absolute;
+   background-color: white;
+   margin-left: 1157px;
+   border: 2px solid white;
+   border-radius: 2px;
+   z-index: 1;
+ }
+
+.h3class{
+	color: #333;
+	cursor: pointer;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 25px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+#inputbox{
+	height: 20px;
+	width:180px;
+}
+#divimg{
+	position: absolute;
+	margin-left: 922px;
+	margin-top: -21px;
+	
+}
+#member_detail{
+	max-height: 150px;
+	background-color: white;
+	margin-left: 831px;
+	border-radius: 3px;
+    overflow: auto;
+    z-index: -1;
+    margin-top: 9px;
+    position: absolute;
+    padding:10px;
+}
+.footer{
+	max-height:640px;
+	overflow: auto;
+	width: 300px;
+	margin-top: 0px;
+	position: relative;
+	float: right;
+	border-radius: 2px;
+	padding: 10px;
+	left:14px;
+	background-color: white;
+}
+.comment_box{
+	height:100px;
+	width:260px;
+	border:1px solid black;
+   max-height:100px;
+   overflow: auto; 
+}
+a:hover{
+
+}
+#logo_name{
+	margin-left: 28%;
+	width:133px;
+	display: inline-block;
+}
+button:hover{
+	opacity: 0.9;
+}
+#project_name_change{
+	height:175px;
+	width:252px;
+	background-color: white;
+	position: absolute;
+	left: 12px;
+    padding:5px;
+    border-radius: 2px;
+
+}
+#project_hover:hover{
+	text-decoration: none;
+	cursor:pointer;
+	opacity: 0.9;
+}
+.itemid:hover{
+	background-color: #D4D4D4;
+}
+.style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color:#d6dadc;
+}
+
+.style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #CACACA;
+}
+.h3class:hover {
+background-color: #298fca;
+color: #fff;
+}
+.member-detail:hover{
+	background-color: #e2e4e6;
+}
+.header-logo-default {
+  background-image: url("../images/kanban_1024.png"); 
+  background-position: top right; 
+  background-repeat: no-repeat;
+  background-size: 80px 30px; 
+  height: 30px; 
+  position: absolute;
+  width: 80px;
+  cursor: pointer;
+}
+.header-logo-default:hover{
+	opacity: 0.9;
+}

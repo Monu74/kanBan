@@ -1,0 +1,13 @@
+ <!--<span ng-show="n" ng-init="n=false" class="list-group">
+     <div class="leftdiv " id="style-2" class="u-fancy-scrollbar">
+     <a  class="list-group-item list-group-item-info" style=" color:black; cursor:pointer;list-style-type:none" ng-repeat="project in projects" data-ng-init="projects=[]" ng-click="readtask(project)" >{{project.name}}</a>      
+  	 </div>
+</span>-->
+<span ng-show="l" ng-init="l=false">
+     <div id="rightdiv">
+     <p style="display:inline;margin-right:63px;">Project Name</p>
+     <span  class="glyphicon glyphicon-remove" ng-click="close_New_project()" ></span>
+     <input type="text" style="width:170px;display:block;background-color:#cdd2d4;border:2px solid #cdd2d4;margin-top:10px" class="js-board-name js-autofocus ng-pristine ng-valid ng-touched" ng-model="ngmodelproject_name">
+     <a ><button class="btn2" ng-click="add_project()" >Add</button></a>
+  	 </div>
+</span>  

@@ -1,0 +1,181 @@
+ <div class="ddiv2 style-2 footer "  id="task_detail_res"  ng-show="options.d">
+     <p style="cursor:pointer;float:right" ng-click="close_task()">[close]</p>
+     <table style="clear:both">
+           <tr>
+               <td>
+                  Name:
+               </td>
+               <td>
+                  <span ng-hide="options.e_hide" ng-init="options.e_hide=false">{{options.task_name | limitTo: 10}}</span>
+                  <span ng-hide="options.e" ng-init="options.e=true">
+                      <input type="text" class="input_box_res" data-ng-model="options.taskname" style="margin-bottom:10px;margin-top:10px"/><br>
+                  </span>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                  Des:
+               </td>
+               <td>
+                  <span ng-hide="options.e_hide" ng-init="options.e_hide=false">{{options.des1}}</span>
+                  <span ng-hide="options.e" ng-init="options.e=true">
+                      <input type="text" class="input_box_res" data-ng-model="options.des1" style="margin-bottom:10px;margin-top:10px"/><br>
+                  </span>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                  Status:
+               </td>
+               <td>
+                 <span ng-hide="options.e_hide" ng-init="options.e_hide=false">{{options.status1}}</span>
+                  <span ng-hide="options.e" ng-init="options.e=true">
+                      <input type="text" class="input_box_res" data-ng-model="options.status1" style="margin-bottom:10px;margin-top:10px"/><br>
+                  </span>
+               </td>
+           </tr>
+            <tr>
+               <td>
+                  Due Date:
+               </td>
+               <td>
+                 <span ng-hide="options.e_hide" ng-init="options.e_hide=false">{{options.duedate1}}</span>
+                  <span ng-hide="options.e" ng-init="options.e=true">
+                      <input type="date"  data-ng-model="options.duedate1" style="margin-bottom:10px;margin-top:10px"/><br>
+                  </span>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                  Completion Date:
+               </td>
+               <td>
+                 <span ng-hide="options.e_hide" ng-init="options.e_hide=false">{{options.completion1}}</span>
+                  <span ng-hide="options.e" ng-init="options.e=true">
+                      <input type="date"  data-ng-model="options.completion1" style="margin-bottom:10px;margin-top:10px"/><br>
+                  </span>
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Task Assigned to:
+               </td>
+               <td>
+                  <span ng-hide="options.e_hide" ng-init="options.e_hide=false">{{options.task_assign}}</span>
+                  <span ng-hide="options.e" ng-init="options.e=true">
+                        <select ng-model="options.task_assign" >
+                            <option ng-repeat="member in options.project_member track by $index" >{{member}}</option>
+                         </select>
+                  </span>                  
+               </td>
+           </tr>
+            <tr>
+               <td>
+                  Task Time:
+               </td>
+               <td>
+                  <span ng-hide="options.e_hide" ng-init="options.e_hide=false">{{options.task_time | limitTo: 10}}</span>
+                  <span ng-hide="options.e" ng-init="options.e=true">
+                      <input type="text" class="input_box_res"  data-ng-model="options.task_time" style="margin-bottom:10px;margin-top:10px"/><br>
+                  </span>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <button  ng-click="changetask()" style="margin-top:10px;margin-bottom:10px" >Edit</button>
+               </td>
+               <td>
+                    <button  ng-click="update()"  >ok</button><br>
+               </td>
+           </tr>
+     </table>
+     <div  class="comment_box" id="comment_box_res">
+           <div ng-repeat="comments in options.task_comments track by $index">
+                <li style="list-style-type:none;font-weight:bold;cursor:pointer"  ng-click="show_Member_Profile(comments.user_email)">{{comments.user_email}}</li>
+                <li style="list-style-type:none">{{comments.user_comments}}</li>
+          </div> 
+     </div>                                 
+   Add Comment:<br>
+   <input  type="text" ng-model="options.comments"/> 
+   <button style="margin-top:10px" ng-click="add_comments()">ok</button>
+    
+
+   <!--  <h5>  
+           <span class="col-xs-3" style="padding:0px">Name:</span>
+           <span class="col-xs-9">{{options.task_name | limitTo: 10}}</span>
+                
+     </h5>
+     <span ng-hide="options.e" ng-init="options.e=true">
+           <input type="text"  data-ng-model="options.taskname" style="position: absolute;margin-left:45px;margin-top: -30px; margin-bottom:20px"/><br>
+     </span>
+     <h5>  
+           <span class="col-xs-3" style="padding:0px">Des:</span>
+           <span class="col-xs-9">{{options.des1 | limitTo: 10}}</span>
+               
+     </h5>
+     <span ng-hide="options.e" ng-init="options.e=true">
+           <input type="text"  data-ng-model="options.des1" style="position: absolute;margin-left:45px;margin-top: -30px;"/><br>
+     </span>
+     <h5>
+           <span class="col-xs-3" style="padding:0px"> Status:</span>
+           <span class="col-xs-9" style="padding:0px">{{options.status1 | limitTo: 10}}</span>      
+     </h5>
+     <span ng-hide="options.e" ng-init="options.e=true">
+           <input type="text"  data-ng-model="options.status1" style="position: absolute;margin-left:45px;margin-top: -30px;"/><br>
+     </span>
+     <h5>
+           <span class="col-xs-3" style="padding:0px"> Due Date:</span>
+           <span>{{options.duedate1 | limitTo: 10}}</span>      
+     </h5>
+     <span ng-hide="options.e" ng-init="options.e=true">
+           <input type="text"  data-ng-model="options.duedate1" style="position: absolute;margin-left:45px;margin-top: -30px;"/><br>
+     </span>
+     <h5>
+           <span style="padding:0px"> Completion Date:</span><br>
+           <span>{{options.completion1 | limitTo: 10}}</span>      
+     </h5>
+     <span ng-hide="options.e" ng-init="options.e=true">
+           <input type="text"  data-ng-model="options.completion1" style="position: absolute;margin-left:45px;margin-top: -30px;"/><br>
+     </span>
+     <h5>
+           <span class="col-xs-3" style="padding:0px"> Task Assigned to:</span>              
+     </h5>
+     <select ng-model="options.task_assign" >
+          <option ng-repeat="member in options.project_member track by $index" >{{member}}</option>
+     </select><br><br>
+      <button  ng-click="changetask()" style="margin-top:10px;margin-bottom:10px" >Edit</button>-->
+     <!--Name:<br>
+     <h4 ng-bind="options.task_name" ></h4><br>
+     <input type="text" ng-hide="options.e" ng-init="options.e=true" data-ng-model="options.taskname" style=""/>
+     Des:
+     <h4 ng-bind="options.des1" style="display:inline-block"></h4>
+     <input type="text" ng-hide="options.e" ng-init="options.e=true" data-ng-model="options.des1">
+     Status:<br>
+      <h4 ng-bind="options.status1" style="display:inline-block"></h4>
+     <input type="text" ng-hide="true" data-ng-model="options.status1"><br><br>
+     Due Date:<br>
+      <h4 ng-bind="options.duedate1" style="display:inline-block"></h4>
+     <input type="date" ng-hide="options.e" ng-init="options.e=true" data-ng-model="options.duedate1"><br><br>
+     Completion Date:<br>
+      <h4 ng-bind="options.completion1" style="display:inline-block"></h4>
+     <input type="date" ng-hide="options.e" ng-init="options.e=true"  data-ng-model="options.completion1" ><br><br>
+    Task Assigned to:<br>
+    <select ng-model="options.task_assign" >
+       <option ng-repeat="member in options.project_member track by $index" >{{member}}</option>
+    </select><br><br>
+    Task Time:<br>
+     <h4 ng-bind="options.task_time" style="display:inline-block"></h4>
+    <input type="text" ng-readonly="options.e" ng-init="options.e=true" ng-model="options.task_time" style="display:block" />
+    <button  ng-click="changetask()" style="margin-top:10px;margin-bottom:10px" >Edit</button>
+    <button  ng-click="update()"  >ok</button><br>
+    Comments:<br>
+   <div id="comment_box">
+    <div ng-repeat="comments in options.task_comments track by $index">
+      <li style="list-style-type:none;font-weight:bold;cursor:pointer"  ng-click="show_Member_Profile(comments.user_email)">{{comments.user_email}}</li>
+      <li style="list-style-type:none">{{comments.user_comments}}</li>
+    </div> 
+   </div>                                 
+   Add Comment:<br>
+   <input type="text" ng-model="options.comments"/> 
+   <button style="margin-top:10px" ng-click="add_comments()">ok</button>-->
+</div>

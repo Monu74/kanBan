@@ -1,0 +1,9 @@
+
+<div ng-app="my-app" ng-controller="MainController" ng-init="colors=[]">
+<div class="container">
+    <header><h1>Draggables</h1></header>
+    <section>
+        <div  droppable="true" draggable="true"  
+   style="margin-top:20px;" ng-repeat="drag_type in drag_types track by $index " id = "div {{ $index}}"> {{drag_type.name}}</div>
+    </section>
+</div>

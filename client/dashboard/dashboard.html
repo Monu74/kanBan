@@ -1,0 +1,10 @@
+<section  id="dashboard" >
+  <dashboardheader></dashboardheader>
+  <leftright></leftright>
+  <profile></profile>
+   <div    id="member_detail" ng-show="options.show">
+     <li ng-repeat="member in options.project_member track by $index" style="list-style-type:none;cursor:pointer;" ng-click="show_Member_Profile(member)">{{member}}</li>
+  </div>  
+  <div ui-view > 
+  </div>
+</section>
